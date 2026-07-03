@@ -1,0 +1,129 @@
+.section-cookies {
+  background-color: #d1dace !important;
+  box-shadow: 0 1px 31px rgb(90 102 85 / 24%);
+}
+
+@media screen and (max-width: 767px) {
+    .section-cookies {
+        border-radius: 46px !important;
+    }
+    .cookies_component {
+        flex-wrap: wrap !important;
+    }
+    .cookies_content {
+        padding-left: 0px !important;
+    }
+}
+
+
+.certificate_img-2 .w-lightbox img {
+    max-width: 120px;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 912px) {
+  .txt-hide {
+    display: none;
+  }
+}
+.pulse-fill { fill: #788373; }
+
+.pulse-stroke{
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* чтобы scale шёл от центра SVG */
+  transform-box: view-box;           /* коробка = viewBox SVG [web:39] */
+  transform-origin: 22px 22px;       /* центр твоего viewBox 44x44 [web:36] */
+
+  opacity: 0;
+  animation: waveOut 1400ms ease-out infinite;
+}
+
+/* волна: из центра наружу */
+@keyframes waveOut{
+  0%   { transform: scale(0.65); opacity: 0; }
+  12%  { opacity: 1; }
+  70%  { opacity: 0.35; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+/* задержки, чтобы кольца шли как волны */
+.pulse-strokes .pulse-stroke:nth-child(1){ animation-delay: 0ms; }
+.pulse-strokes .pulse-stroke:nth-child(2){ animation-delay: 140ms; }
+.pulse-strokes .pulse-stroke:nth-child(3){ animation-delay: 280ms; }
+.pulse-strokes .pulse-stroke:nth-child(4){ animation-delay: 420ms; }
+
+@media (prefers-reduced-motion: reduce){
+  .pulse-stroke{ animation: none; opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   Кроссбраузерные исправления (Cross-browser fixes)
+   ========================================================================== */
+
+/* 1. Плавная прокрутка для iOS Safari и фикс изменения размера текста при повороте экрана */
+html, body {
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+}
+
+/* 2. Сглаживание шрифтов (macOS / iOS) для более четкого и одинакового отображения */
+body {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* 3. Убираем синюю подсветку при клике (тапе) на элементы в мобильных браузерах (iOS/Android) */
+a, button, input, select, textarea, .w-dropdown-toggle, .w-tab-link, .city-change {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* 4. Принудительный сброс нативных стилей полей ввода в Safari (iOS) */
+input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0; /* В Safari могут быть круглые углы по умолчанию */
+}
+
+/* 5. Фикс для SVG (чтобы иконки не вылазили за границы в старых версиях Safari/Edge) */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 6. Предотвращение случайного выделения текста на кнопках и вкладках (Safari/Chrome мобильные) */
+.w-button, .w-tab-link, .city-change, .close-chose-city-drop {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Делаем контейнер видео относительным для позиционирования зон */
+#video-slider .w-embed {
+    position: relative;
+}
+
+/* Создаем две прозрачные полосы сверху и снизу видео */
+#video-slider .w-embed::before,
+#video-slider .w-embed::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 25%; /* Занимают по 25% высоты видео сверху и снизу */
+    z-index: 10;
+}
+
+#video-slider .w-embed::before {
+    top: 0;
+}
+
+#video-slider .w-embed::after {
+    bottom: 0;
+}
